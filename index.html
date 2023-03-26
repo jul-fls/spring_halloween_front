@@ -1,0 +1,17 @@
+<script defer>
+    async function l(t, u) {
+        var r = new XMLHttpRequest();
+        r.open("GET", u, true);
+        r.onreadystatechange = function () {
+            if (r.readyState != 4 || r.status != 200) return;
+            t.innerHTML = r.responseText;
+        };
+        r.send();
+    }
+    l(document.getElementById('head'), 'header.html');
+</script>
+<h1 class="text-3xl font-bold underline">
+    Hello world!
+</h1>
+<footer id="footer"></footer>
+<!-- <script>l(document.getElementById('footer'), 'footer.html');</script> -->

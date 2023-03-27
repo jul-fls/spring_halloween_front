@@ -24,7 +24,7 @@
             }
         }
     </script>
-    <script src="script.js" async defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -58,16 +58,24 @@
                             <div class="text-gray-900 font-bold text-xl mb-2 text-center">Créer un compte</div>
                             <div class="space-y-4">
                                 <div class="mb-6">
+                                    <label for="register-firstName" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Prénom</label>
+                                    <input id="register-firstName" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Prénom" required name="firstName">
+                                </div>
+                                <div class="mb-6">
+                                    <label for="register-lastName" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom</label>
+                                    <input id="register-lastName" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Nom" required name="lastName">
+                                </div>
+                                <div class="mb-6">
                                     <label for="register-email" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                     <input id="register-email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required>
                                 </div>
                                 <div class="mb-6">
                                     <label for="register-password" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe</label>
-                                    <input id="register-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mot de passe" required>
+                                    <input id="register-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mot de passe" required name="password">
                                 </div>
                                 <div class="mb-6">
                                     <label for="register-confirm-password" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmer le mot de passe</label>
-                                    <input id="register-confirm-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Confirmer le mot de passe" required>
+                                    <input id="register-confirm-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Confirmer le mot de passe" required name="confirmPassword">
                                 </div>
                                 <div>
                                     <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Créer un compte</button>
@@ -80,7 +88,5 @@
         </div>
 
     </div>
-    <script src="script.js" defer></script>
 </body>
-
 </html>

@@ -1,3 +1,5 @@
+BACKEND_API_URL = "https://1188-2a01-e0a-18b-a410-b4f9-55c2-4398-a43f.eu.ngrok.io/api/";
+
 loginTab = document.getElementById("login-tab");
 registerTab = document.getElementById("register-tab");
 loginForm = document.getElementById("login-form");
@@ -18,21 +20,23 @@ loginForm.addEventListener("submit", function (e) {
         email: email,
         password: password,
     };
-    fetch("/login", {
+    fetch(BACKEND_API_URL+"user/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
     })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.status == "success") {
-                window.location.href = "/dashboard";
-            } else {
-                alert(data.message);
-            }
-        });
+    .then((res) => {
+        if (res.status === 200) {
+            window.location.href = "/dashboard";
+        } else {
+            alert("Login failed.");
+        }
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 });
 
 
@@ -46,25 +50,36 @@ registerTab.addEventListener("click", function () {
 
 registerForm.addEventListener("submit", function (e) {
     e.preventDefault();
+    let firstName = document.getElementById("register-firstName").value;
+    let lastName = document.getElementById("register-lastName").value;
     let email = document.getElementById("register-email").value;
     let password = document.getElementById("register-password").value;
+    let confirm_password = document.getElementById("register-confirm-password").value; 
+    if(password != confirm_password){
+        alert("Passwords do not match.");
+        return;
+    }
     let data = {
+        firstName : firstName,
+        lastName : lastName,
         email: email,
         password: password,
     };
-    fetch("/register", {
+    fetch(BACKEND_API_URL+"user/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
     })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.status == "success") {
-                window.location.href = "/dashboard";
-            } else {
-                alert(data.message);
-            }
-        });
+    .then((res) => {
+        if (res.status === 200) {
+            window.location.href = "/dashboard";
+        } else {
+            alert("Error creating user.");
+        }
+    })
+    .catch((error) => {
+        console.error(error);
+    });
 });

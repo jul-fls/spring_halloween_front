@@ -1,46 +1,86 @@
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
-            <ul class="flex justify-between items-center">
-                <li id="login-tab" class="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer">Connexion</li>
-                <li id="register-tab" class="text-blue-500 px-4 py-2 rounded-lg cursor-pointer">Créer un compte</li>
-            </ul>
-            <div class="divide-y divide-gray-200">
-                <form id="login-form" class="py-8">
-                    <div class="text-gray-900 font-bold text-xl mb-2">Connexion</div>
-                    <div class="space-y-4">
-                        <div class="flow-form-control">
-                            <label for="login-email" class="flow-form-label">Email</label>
-                            <input id="login-email" type="email" class="flow-form-input" placeholder="Email" required>
-                        </div>
-                        <div class="flow-form-control">
-                            <label for="login-password" class="flow-form-label">Mot de passe</label>
-                            <input id="login-password" type="password" class="flow-form-input" placeholder="Mot de passe" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Se connecter</button>
-                </form>
+<!DOCTYPE html>
+<html>
 
-                <form id="register-form" class="hidden py-8">
-                    <div class="text-gray-900 font-bold text-xl mb-2">Créer un compte</div>
-                    <div class="space-y-4">
-                        <div class="flow-form-control">
-                            <label for="register-email" class="flow-form-label">Email</label>
-                            <input id="register-email" type="email" class="flow-form-input" placeholder="Email" required>
-                        </div>
-                        <div class="flow-form-control">
-                            <label for="register-password" class="flow-form-label">Mot de passe</label>
-                            <input id="register-password" type="password" class="flow-form-input" placeholder="Mot de passe" required>
-                        </div>
-                        <div class="flow-form-control">
-                            <label for="register-confirm-password" class="flow-form-label">Confirmer le mot de passe</label>
-                            <input id="register-confirm-password" type="password" class="flow-form-input"
-                                placeholder="Confirmer le mot de passe" required>
-                        </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spring Halloween Front</title>
+    <meta name="description" content="Frontend du site de fête d'Halloween du projet Spring">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>console.warn = function () { }</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+    <script defer>
+        console.warn = function () { }
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="script.js" async defer></script>
+</head>
+
+<body>
+    <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+        <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+            <div class="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+                <div class="max-w-md mx-auto">
+                    <ul class="flex justify-center items-center text-sm md:text-lg font-bold mb-8">
+                        <li id="login-tab" class="bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer">Connexion</li>
+                        <li class="mx-4"></li>
+                        <li id="register-tab" class="text-blue-500 px-4 py-2 rounded-lg cursor-pointer">Créer un compte</li>
+                    </ul>
+                    <div class="divide-y divide-gray-200">
+                        <form id="login-form" class="py-8">
+                            <div class="text-gray-900 font-bold text-xl mb-2 text-center">Connexion</div>
+                            <div class="space-y-4">
+                                <div class="mb-6">
+                                    <label for="login-email" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                    <input id="login-email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="login-password" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe</label>
+                                    <input id="login-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mot de passe" required>
+                                </div>
+                                <div class="mb-6">
+                                    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Se connecter</button>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="register-form" class="hidden py-8">
+                            <div class="text-gray-900 font-bold text-xl mb-2 text-center">Créer un compte</div>
+                            <div class="space-y-4">
+                                <div class="mb-6">
+                                    <label for="register-email" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                    <input id="register-email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Email" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="register-password" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot de passe</label>
+                                    <input id="register-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Mot de passe" required>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="register-confirm-password" class="mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmer le mot de passe</label>
+                                    <input id="register-confirm-password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Confirmer le mot de passe" required>
+                                </div>
+                                <div>
+                                    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Créer un compte</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 mt-4 rounded-lg">Créer un compte</button>
-                </form>
+                </div>
             </div>
         </div>
+
     </div>
-</div>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

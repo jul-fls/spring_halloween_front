@@ -1,4 +1,4 @@
-BACKEND_API_URL = "https://1188-2a01-e0a-18b-a410-b4f9-55c2-4398-a43f.eu.ngrok.io/api/";
+BACKEND_API_URL = "https://aef2-89-156-51-241.eu.ngrok.io/api";
 
 loginTab = document.getElementById("login-tab");
 registerTab = document.getElementById("register-tab");
@@ -20,7 +20,7 @@ loginForm.addEventListener("submit", function (e) {
         email: email,
         password: password,
     };
-    fetch(BACKEND_API_URL+"user/login", {
+    fetch(BACKEND_API_URL+"/user/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -29,10 +29,17 @@ loginForm.addEventListener("submit", function (e) {
     })
     .then((res) => {
         if (res.status === 200) {
-            window.location.href = "/dashboard";
+            return res.json();
         } else {
             alert("Login failed.");
+            throw new Error("Login failed.");
         }
+    })
+    .then((userData) => {
+        document.cookie = "user=" + JSON.stringify(userData);
+        userCookie = JSON.parse(document.cookie.split("; ").find(row => row.startsWith("user=")).split("=")[1]);
+        window.location.href = "/dashboard";
+        // create a cookie with the user data
     })
     .catch((error) => {
         console.error(error);
@@ -65,7 +72,7 @@ registerForm.addEventListener("submit", function (e) {
         email: email,
         password: password,
     };
-    fetch(BACKEND_API_URL+"user/create", {
+    fetch(BACKEND_API_URL+"/user/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

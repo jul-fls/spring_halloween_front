@@ -39,7 +39,7 @@ function displayProduct(product){
     const container = document.createElement('div');
     container.classList.add("w-full","max-w-sm","bg-white","border","border-gray-200","rounded-2xl","shadow-2xl","dark:bg-gray-800","dark:border-gray-700");
     const a = document.createElement('a');
-    a.href = "/product.html?id="+product.id;
+    a.href = "product.html?id="+product.id;
     const img = document.createElement('img');
     img.classList.add("h-auto","w-full","rounded-2xl","p-2");
     img.src = product.photo;
@@ -49,12 +49,19 @@ function displayProduct(product){
     const div = document.createElement('div');
     div.classList.add("px-5","pb-5");
     const a2 = document.createElement('a');
-    a2.href = "/product.html?id="+product.id;
+    a2.href = "product.html?id="+product.id;
     const h5 = document.createElement('h5');
     h5.classList.add("text-xl","font-semibold","tracking-tight","text-gray-900","dark:text-white");
     h5.innerHTML = product.name;
     a2.appendChild(h5);
     div.appendChild(a2);
+    const a4 = document.createElement('a');
+    a4.href = "entreprise.html?id="+product.entreprise.id;
+    const h5_2 = document.createElement('h5');
+    h5_2.classList.add("text-sm","font-semibold","tracking-tight","text-gray-500","dark:text-gray-400");
+    h5_2.innerHTML = product.entreprise.name;
+    a4.appendChild(h5_2);
+    div.appendChild(a4);
     const div2 = document.createElement('div');
     div2.classList.add("flex","items-center","mt-2.5","mb-5");
     div2.id = "stars";
@@ -67,29 +74,148 @@ function displayProduct(product){
     span.innerHTML = product.price+" €";
     div3.appendChild(span);
     const a3 = document.createElement('a');
-    a3.href = "/product.html?id="+product.id;
-    a3.classList.add("text-white","bg-blue-700","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","text-center","dark:bg-blue-600","dark:hover:bg-blue-700","dark:focus:ring-blue-800");
-    a3.innerHTML = "Ajouter au panier";
+    a3.href = "product.html?id="+product.id;
+    a3.classList.add("text-white","bg-blue-700","hover:bg-blue-800","focus:ring-4","focus:outline-none","focus:ring-blue-300","font-medium","rounded-lg","text-sm","px-5","py-2.5","ml-4","text-center","dark:bg-blue-600","dark:hover:bg-blue-700","dark:focus:ring-blue-800");
+    a3.innerHTML = "Commander";
     div3.appendChild(a3);
     div.appendChild(div3);
     container.appendChild(div);
     document.querySelector('#products').appendChild(container);
 }
-const producttest = {
-    id: 1,
-    name: "Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport",
-    price: 599,
-    image: "https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg",
-    rating: 4.75
-}
+const test_products = [
+    {
+        id: 1,
+        name: "Produit 1",
+        price: 10,
+        photo: "https://picsum.photos/200/200",
+        rating: 4.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 2,
+        name: "Produit 2",
+        price: 20,
+        photo: "https://picsum.photos/200/200",
+        rating: 3.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 3,
+        name: "Produit 3",
+        price: 30,
+        photo: "https://picsum.photos/200/200",
+        rating: 2.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 4,
+        name: "Produit 4",
+        price: 40,
+        photo: "https://picsum.photos/200/200",
+        rating: 1.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 5,
+        name: "Produit 5",
+        price: 50,
+        photo: "https://picsum.photos/200/200",
+        rating: 0.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 6,
+        name: "Produit 6",
+        price: 60,
+        photo: "https://picsum.photos/200/200",
+        rating: 4.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 7,
+        name: "Produit 7",
+        price: 70,
+        photo: "https://picsum.photos/200/200",
+        rating: 3.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 8,
+        name: "Produit 8",
+        price: 80,
+        photo: "https://picsum.photos/200/200",
+        rating: 2.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 9,
+        name: "Produit 9",
+        price: 90,
+        photo: "https://picsum.photos/200/200",
+        rating: 1.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    },
+    {
+        id: 10,
+        name: "Produit 10",
+        price: 100,
+        photo: "https://picsum.photos/200/200",
+        rating: 0.5,
+        entreprise: {
+            id: 1,
+            name: "Entreprise 1",
+            siret: "12345678901234"
+        }
+    }
+];
 
-function getProducts(){
-    apiCall("/product/getAll", "GET", null, (res) => {
-        products = res;
-        products.forEach(product => {
-            displayProduct(product);
-        });
-    });
-}
+test_products.forEach(product => {
+    displayProduct(product);
+});
 
-getProducts();
+// function getProducts(){
+//     apiCall("/product/getAll", "GET", null, (res) => {
+//         products = res;
+//         products.forEach(product => {
+//             displayProduct(product);
+//         });
+//     });
+// }
+
+// getProducts();

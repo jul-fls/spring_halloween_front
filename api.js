@@ -1,4 +1,4 @@
-BACKEND_API_URL = "http://89.156.51.241:8080/api";
+BACKEND_API_URL = "https://spring-halloween-api.flusin.fr";
 
 //create a method that takes a path, a method, a body and a callback
 function apiCall(path, method, body, callback) {

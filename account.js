@@ -1,0 +1,11 @@
+user = JSON.parse(sessionStorage.getItem('user'));
+document.querySelector('#firstName').value = user.firstName;
+document.querySelector('#lastName').value = user.lastName;
+document.querySelector('#email').value = user.email;
+document.querySelector('#isAdmin').checked = user.admin;
+document.querySelector('#isEnterprise').checked = user.enterprise;
+document.querySelector('#address').value = parseInt(user.address.address);
+document.querySelector('#addressName').value = user.address.name;
+document.querySelector('#zipCode').value = user.address.zipcode;
+document.querySelector('#city').value = user.address.city;
+document.querySelector('#country').value = user.address.country;

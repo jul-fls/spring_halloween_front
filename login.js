@@ -22,7 +22,7 @@ loginForm.addEventListener("submit", function (e) {
         userData = res;
         sessionStorage.setItem("user", JSON.stringify(userData));
         // userCookie = JSON.parse(document.cookie.split("; ").find(row => row.startsWith("user=")).split("=")[1]);
-        window.location.href = "/";
+        window.location.href = "products.html";
     });
 });
 
@@ -70,15 +70,8 @@ registerForm.addEventListener("submit", function (e) {
     //     console.error(error);
     // });
     apiCall("/user/create", "POST", data, (res) => {
-        try {
-            if (res.status === 200) {
-                window.location.href = "/";
-            } else {
-                alert("Error creating user.");
-                throw new Error("Error creating user.");
-            }
-        } catch (error) {
-            console.error(error);
-        }
+        userData = res;
+        sessionStorage.setItem("user", JSON.stringify(userData));
+        window.location.href = "products.html";
     });
 });

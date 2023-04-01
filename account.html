@@ -7,16 +7,11 @@
     <title>Spring Halloween Front</title>
     <meta name="description" content="Frontend du site de fête d'Halloween du projet Spring">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
     <script>console.warn = function () { }</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script defer>
         console.warn = function () { }
         tailwind.config = {
@@ -32,7 +27,7 @@
     </script>
     <script src="checkLogin.js" defer></script>
     <script src="api.js" defer></script>
-    <script src="products.js" defer></script>
+    <script src="account.js" defer></script>
 </head>
 
 <body>
@@ -56,7 +51,7 @@
                     </div>
                     <ul class="py-2" aria-labelledby="user-menu-button">
                         <li>
-                            <a href="account.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Mon compte</a>
+                            <a href="account.html" class="block py-2 ml-4 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:" aria-current="page">Mon compte</a>
                         </li>
                         <li>
                             <a href="logout.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 ">Déconnexion</a>
@@ -74,12 +69,12 @@
                 <ul
                     class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
                     <li>
-                        <!-- active classes block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:-->
-                        <!-- inactive classes block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:md:-->
+                        <!-- active classes block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 -->
+                        <!-- inactive classes block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 -->
                         <a href="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Accueil</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:" aria-current="page">Produits</a>
+                        <a href="products.html" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Produits</a>
                     </li>
                     <li>
                         <a href="entreprises.html" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 ">Entreprises</a>
@@ -89,8 +84,37 @@
         </div>
     </nav>
     <div class="flex justify-center">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8 pb-24 ml-8" id="products">
-            
+        <div class="w-1/2 grid grid-cols-3 gap-8 mt-8 pb-24 ml-8" id="account">
+            <div class="col-span-2 md:col-span-1">
+                <label for="firstName" class="block text-center text-sm font-medium text-gray-700">Prénom</label>
+                <input disabled type="text" name="firstName" id="firstName" autocomplete="given-name" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 " placeholder="Prénom">
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label for="lastName" class="block text-center text-sm font-medium text-gray-700">Nom</label>
+                <input disabled type="text" name="lastName" id="lastName" autocomplete="family-name" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 " placeholder="Nom">
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label for="email" class="block text-center text-sm font-medium text-gray-700">Email</label>
+                <input disabled type="email" name="email" id="email" autocomplete="email" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 " placeholder="Addresse email">
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label for="isAdmin" class="block text-center text-sm font-medium text-gray-700">Administrateur</label>
+                <input disabled type="checkbox" name="isAdmin" id="isAdmin" class="cursor-not-allowed block mx-auto w-1/2 h-8 mt-1 text-sm border-gray-300 rounded-full shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 ">
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label for="isEnterprise" class="block text-center text-sm font-medium text-gray-700">Entreprise</label>
+                <input disabled type="checkbox" name="isEnterprise" id="isEnterprise" class="cursor-not-allowed block mx-auto w-1/2 h-8 mt-1 text-sm border-gray-300 rounded-full shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 ">
+            </div>
+            <div class="col-span-2 md:col-span-1">
+                <label for="address" class="block text-center text-sm font-medium text-gray-700">Adresse</label>
+                <div class="grid grid-cols-2 gap-2 mt-2 pb-4">
+                    <input disabled type="number" name="address" id="address" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Numéro de rue">
+                    <input disabled type="text" name="addressName" id="addressName" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Nom de rue">
+                    <input disabled type="text" name="zipCode" id="zipCode" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Code postal">
+                    <input disabled type="text" name="city" id="city" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Ville">
+                    <input disabled type="text" name="country" id="country" class="cursor-not-allowed block w-full mt-1 text-sm border-gray-300 rounded-md shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50" placeholder="Pays">
+                </div>
+            </div>
         </div>
     </div>
 </body>
